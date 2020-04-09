@@ -1,5 +1,6 @@
 
 # My solution
+# Passed all test cases
 
 def countElements(arr):
     a = set(arr)
