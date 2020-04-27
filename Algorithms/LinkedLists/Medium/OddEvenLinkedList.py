@@ -1,5 +1,5 @@
 # My solution 
-
+# This solution is not optimal as it is not in O(1) extra space and creates two new linked lists and a counter variable 
 def oddEvenLinkedList(head):
     odd = oddHead = ListNode(None)                  # generate two LL nodes. 
     even = evenHead = ListNode(None)
@@ -21,8 +21,15 @@ def oddEvenLinkedList(head):
     return odd.next
 
 # Another solution 
+# Two pointers approach 
 
 def oddEvenLinkedLists(head):
-   pass
-
-# Add a solution that doesn't use any extra memory 
+    if(head == None):
+        return head
+    oddHead = head                                  # one pointer to the start of the list (Odd Nodes)
+    evenHead = even = head.next                     # Two pointers to the 2nd node (Even Nodes)
+    while evenHead and evenHead.next:               # Condition is if hte second node and third node in head is not None
+        oddHead.next = oddHead = evenHead.next      # The next odd node is the next node from the even node. Ex: OddNode1 -> EvenNode1 -> OddNode2 ->EvenNode2. The next node of "EvenNode1" is "OddNode2"
+        evenHead.next = evenHead = oddHead.next     # The next even node is now the next node of the next odd node. Ex: OddNode1 -> EvenNode1 -> OddNode2 ->EvenNode2. The next even node is the next node of OddNodeTwo, which is EvenNode2
+    oddHead.next = even                             # The last OddNodes next pointer should point to the start of the even nodes. (That is why we have two pointers for even node)
+    return head                                     # Now that the LL was re-arranged, return the head node (the first node of the LL)
