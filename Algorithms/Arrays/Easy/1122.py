@@ -1,0 +1,12 @@
+def relativeSort(arr1, arr2):
+    result = []
+    for i in range(len(arr2)):
+        for j in range(len(arr1)):
+            if arr1[j] == arr2[i]:
+                result.append(arr1[j])
+    extras = []
+    for i in range(len(arr1)):
+        if arr1[i] not in result:
+            extras.append(arr1[i])
+    return result + sorted(extras)
+
