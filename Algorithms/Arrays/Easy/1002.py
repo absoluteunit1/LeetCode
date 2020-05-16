@@ -22,3 +22,15 @@ def solution(A):
         if d[i] != -1:
             result += [i]*d[i]
     return result
+
+def solution2(A):
+    check = list(A[0])
+    for word in A[1:]:
+        newCheck = []
+        for c in word:
+            if c in check:
+                newCheck.append(c)
+                check.remove(c)
+        check = newCheck
+    return check
+    
