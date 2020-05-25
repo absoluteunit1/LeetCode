@@ -35,11 +35,7 @@ class MyQueue:
         """
         return not self.s1 and not self.s2
         
-    def transfer(self, s1=self.s1, s2=self.s2):
-        if not s2:
-            while s1:
-                s2.append(s1.pop())
-    
-
-        
-        
+    def transfer(self):
+        if not self.s2:
+            while self.s1:
+                self.s2.append(self.s1.pop())
