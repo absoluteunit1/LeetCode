@@ -10,6 +10,4 @@ def twoSum(nums, target):
                 return indices
 
 
-def twoSum2(nums, target):
-    indices = []
     
